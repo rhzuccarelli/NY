@@ -22,10 +22,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .cover-route{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.4);flex-wrap:wrap;justify-content:center;}
 .route-c{color:rgba(255,255,255,.8);font-weight:500;}
 .route-a{color:rgba(255,220,120,.6);}
-.cover-legs{display:flex;flex-direction:column;gap:7px;width:100%;max-width:430px;margin:4px 0 44px;}
-.cleg{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:7px;}
-.cleg-c{color:rgba(255,255,255,.85);font-weight:500;font-size:14px;}
-.cleg-d{color:rgba(255,220,120,.7);font-size:12px;white-space:nowrap;letter-spacing:.02em;}
+.rstop{display:inline-flex;flex-direction:column;align-items:center;gap:2px;}
+.rstop-d{font-size:10px;color:rgba(255,220,120,.6);white-space:nowrap;}
 .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:200;display:flex;overflow-x:auto;box-shadow:0 1px 8px rgba(0,0,0,.06);scrollbar-width:none;}
 .nav::-webkit-scrollbar{display:none;}
 .nav a{padding:14px 18px;text-decoration:none;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
@@ -139,14 +137,18 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 
 <div class="cover">
   <div class="cover-eye">Guide de voyage personnel · Été 2026</div>
-  <div class="cover-title" style="font-size:clamp(26px,4.6vw,48px);line-height:1.12;">Barcelona <span class="route-a">→</span> NYC/Brooklyn <span class="route-a">→</span> Chicago <span class="route-a">→</span> Seattle <span class="route-a">→</span> Barcelona</div>
+  <div class="cover-title">Trip USA</div>
   <div class="cover-sub">27 juin — 14 juillet 2026 · 2 personnes</div>
-  <div class="cover-legs">
-    <div class="cleg"><span class="cleg-c">🛫 Barcelona</span><span class="cleg-d">27 juin · départ</span></div>
-    <div class="cleg"><span class="cleg-c">🗽 NYC / Brooklyn</span><span class="cleg-d">27–30 juin · 30 juin – 3 juil</span></div>
-    <div class="cleg"><span class="cleg-c">🌆 Chicago</span><span class="cleg-d">3 – 10 juillet</span></div>
-    <div class="cleg"><span class="cleg-c">🌲 Seattle</span><span class="cleg-d">10 – 13 juillet</span></div>
-    <div class="cleg"><span class="cleg-c">🛬 Barcelona</span><span class="cleg-d">14 juillet · retour</span></div>
+  <div class="cover-route" style="margin:6px 0 40px;">
+    <span class="rstop"><span class="route-c">Barcelona</span><span class="rstop-d">27 juin</span></span>
+    <span class="route-a">→</span>
+    <span class="rstop"><span class="route-c">NYC/Brooklyn</span><span class="rstop-d">27 juin – 3 juil</span></span>
+    <span class="route-a">→</span>
+    <span class="rstop"><span class="route-c">Chicago</span><span class="rstop-d">3 – 10 juil</span></span>
+    <span class="route-a">→</span>
+    <span class="rstop"><span class="route-c">Seattle</span><span class="rstop-d">10 – 13 juil</span></span>
+    <span class="route-a">→</span>
+    <span class="rstop"><span class="route-c">Barcelona</span><span class="rstop-d">14 juil</span></span>
   </div>
   <div class="cover-stats">
     <div><span class="stat-n">16</span><span class="stat-l">Nuits</span></div>
@@ -220,7 +222,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     </div>
     <div class="item">
       <span class="i-time">~18h</span><div class="i-dot" style="background:var(--c-brunch)"></div>
-      <div class="i-body"><div class="i-name">🛒 Chelsea Market <span class="tag tbr">Snack</span></div><div class="i-desc">75 9th Ave · Food hall · Snack avant jazz</div><div class="i-dur">⏱ 30 min</div><div class="opts"><div class="opts-lbl">Options</div><div class="opt"><span class="opt-l">A</span>Suprema Provisions · burger · $15–20 ⚪</div><div class="opt"><span class="opt-l">B</span>Tacombi · tacos · $15–20 ✅</div><div class="opt"><span class="opt-l">C</span>Luke's Lobster · seafood · $20–25 ⚪</div></div></div>
+      <div class="i-body"><div class="i-name">🛒 Chelsea Market <span class="tag tbr">Snack</span></div><div class="i-desc">75 9th Ave · Food hall · Snack avant jazz</div><div class="i-dur">⏱ 30 min</div><div class="opts"><div class="opts-lbl">Options</div><div class="opt"><span class="opt-l">A</span>Suprema Provisions · burger · $15–20</div><div class="opt"><span class="opt-l">B</span>Tacombi · tacos · $15–20 ✅</div><div class="opt"><span class="opt-l">C</span>Luke's Lobster · seafood · $20–25</div></div></div>
       <span class="i-km">0.2 km</span>
     </div>
     <div class="item">
@@ -253,7 +255,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     </div>
     <div class="item">
       <span class="i-time">Matin</span><div class="i-dot" style="background:var(--c-brunch)"></div>
-      <div class="i-body"><div class="i-name">☕ Brunch Meatpacking <span class="tag tbr">Brunch</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Petite Boucherie · 14 Christopher St · Français · $25–35 ⚪</div><div class="opt"><span class="opt-l">B</span>Wild · 535 Hudson St · GF brunch · $25–35 ✅</div><div class="opt"><span class="opt-l">C</span>Smør · 441 E 12th St · Chill · $20–30 ✅</div></div></div>
+      <div class="i-body"><div class="i-name">☕ Brunch Meatpacking <span class="tag tbr">Brunch</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Petite Boucherie · 14 Christopher St · Français · $25–35</div><div class="opt"><span class="opt-l">B</span>Wild · 535 Hudson St · GF brunch · $25–35 ✅</div><div class="opt"><span class="opt-l">C</span>Smør · 441 E 12th St · Chill · $20–30 ✅</div></div></div>
       <span class="i-km">–</span>
     </div>
     <div class="item">
@@ -350,7 +352,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     </div>
     <div class="item">
       <span class="i-time">~14h</span><div class="i-dot" style="background:var(--c-resto)"></div>
-      <div class="i-body"><div class="i-name">🍽️ Déjeuner Midtown <span class="tag tr">Déjeuner</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Momosan Ramen · 342 Lexington Ave · $25–35 ⚪</div><div class="opt"><span class="opt-l">B</span>Keens Steakhouse · 72 W 36th St · $60–80 ✅</div></div></div>
+      <div class="i-body"><div class="i-name">🍽️ Déjeuner Midtown <span class="tag tr">Déjeuner</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Momosan Ramen · 342 Lexington Ave · $25–35</div><div class="opt"><span class="opt-l">B</span>Keens Steakhouse · 72 W 36th St · $60–80 ✅</div></div></div>
       <span class="i-km">–</span>
     </div>
     <div class="item">
@@ -433,7 +435,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     </div>
     <div class="item">
       <span class="i-time">~16h30</span><div class="i-dot" style="background:var(--c-resto)"></div>
-      <div class="i-body"><div class="i-name">🍽️ Déjeuner tardif <span class="tag tr">Déjeuner</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Tetsu · 78 Leonard St · Japonais Chef Masa · $45–65 ✅</div><div class="opt"><span class="opt-l">B</span>Kiki's · 130 Division St · Grec · Chill · $30–45 ✅</div><div class="opt"><span class="opt-l">C</span>Macao Trading Co · 311 Church St · $35–50 ✅</div><div class="opt"><span class="opt-l">D</span>Xi'an Famous Foods · Downtown · nouilles épicées · $12 ⚪</div></div></div>
+      <div class="i-body"><div class="i-name">🍽️ Déjeuner tardif <span class="tag tr">Déjeuner</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Tetsu · 78 Leonard St · Japonais Chef Masa · $45–65 ✅</div><div class="opt"><span class="opt-l">B</span>Kiki's · 130 Division St · Grec · Chill · $30–45 ✅</div><div class="opt"><span class="opt-l">C</span>Macao Trading Co · 311 Church St · $35–50 ✅</div><div class="opt"><span class="opt-l">D</span>Xi'an Famous Foods · Downtown · nouilles épicées · $12</div></div></div>
       <span class="i-km">–</span>
     </div>
     <div class="item">
@@ -537,7 +539,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     </div>
     <div class="item">
       <span class="i-time">~12h45</span><div class="i-dot" style="background:var(--c-resto)"></div>
-      <div class="i-body"><div class="i-name">🍱 Déjeuner DUMBO <span class="tag tr">Déjeuner</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Time Out Market · 55 Water St · $20–25 ⚪</div><div class="opt"><span class="opt-l">B</span>Roberta's · 261 Moore St · Pizza · $25–40 ✅</div></div></div>
+      <div class="i-body"><div class="i-name">🍱 Déjeuner DUMBO <span class="tag tr">Déjeuner</span></div><div class="opts"><div class="opt"><span class="opt-l">A</span>Time Out Market · 55 Water St · $20–25</div><div class="opt"><span class="opt-l">B</span>Roberta's · 261 Moore St · Pizza · $25–40 ✅</div></div></div>
       <span class="i-km">–</span>
     </div>
     <div class="item">
@@ -848,7 +850,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
       <div class="ws"><span class="ws-n">4</span><div><div class="ws-name">🌉 DuSable Bridge</div><div class="ws-int">Pont bascule historique 1920 · tours ornementées avec bas-reliefs retraçant l'histoire de Chicago · vue panoramique sur la rivière et les gratte-ciels · meilleure photo skyline du Loop</div><div class="ws-type">N Michigan Ave &amp; Chicago River · 10 min</div></div></div>
       <div class="ws"><span class="ws-n">5</span><div><div class="ws-name">🚢 McCormick Bridgehouse</div><div class="ws-int">Musée à l'intérieur du mécanisme du pont bascule · engrenages géants visibles · comprendre comment fonctionne le pont · ouvert mer-dim</div><div class="ws-type">99 Chicago Riverwalk · Pass by</div></div></div>
       <div class="ws"><span class="ws-n">6</span><div><div class="ws-name">🕊️ Vietnam Veterans Memorial</div><div class="ws-int">Mur de granit poli reflétant la rivière · noms des soldats de l'Illinois gravés · emplacement intimiste au bord de l'eau · sobre et émouvant</div><div class="ws-type">24 E Wacker Dr · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">7</span><div><div class="ws-name">🎭 The Chicago Theatre</div><div class="ws-int">Marquee néon emblématique 1921 · style baroque français · une des enseignes les plus photographiées de la ville · salle de spectacle encore active</div><div class="ws-type">175 N State St · Pass by</div></div></div>
+      <div class="ws"><span class="ws-n">7</span><div><div class="ws-name">🎭 The Chicago Theatre</div><div class="ws-int">Marquee néon iconique 1921 · style baroque français · une des enseignes les plus photographiées de la ville · salle de spectacle encore active</div><div class="ws-type">175 N State St · Pass by</div></div></div>
       <div class="ws"><span class="ws-n">8</span><div><div class="ws-name">📚 Harold Washington Library</div><div class="ws-int">Plus grande bibliothèque publique du monde à son inauguration · Winter Garden au 9e étage (immense véranda verre &amp; acier) · oasis cachée et gratuite en plein Loop · architecture postmoderne spectaculaire</div><div class="ws-type">400 S State St · 10 min</div></div></div>
       <div class="ws"><span class="ws-n">9</span><div><div class="ws-name">🏨 Palmer House Hilton ⭐</div><div class="ws-int">⭐ Stop gourmand + architecture · lobby néo-baroque parmi les plus beaux des USA (plafonds peints à la main, fresques, dorures, piliers monumentaux), inauguré 1873 · 🍫 brownie original inventé ici en 1893 pour l'Exposition Universelle, encore servi selon la recette d'origine (sauce abricot + noix) au Lockwood ou café du lobby · entrée libre dans le lobby</div><div class="ws-type">17 E Monroe St · 20 min</div></div></div>
       <div class="ws"><span class="ws-n">10</span><div><div class="ws-name">🌀 Miró's Chicago</div><div class="ws-int">Sculpture surréaliste de Joan Miró offerte à Chicago en 1981 · bronze + céramique + mosaïque · représente une femme cosmique · face au Picasso, les deux œuvres se répondent · gratuit</div><div class="ws-type">77 W Washington St · 5 min</div></div></div>
@@ -1042,9 +1044,9 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     <div class="sec-eye">Sélection @anaisraluy</div>
     <div class="sec-title">🍽️ Restaurants par jour</div>
   </div>
-  <div style="font-size:11px;color:var(--muted);margin:-2px 0 16px;line-height:1.7;">💲 Prix indicatif par personne · 🏛️ emblématique · ✅ sélection Anais · ⚪ autre adresse · ⭐ coup de cœur</div>
+  <div style="font-size:11px;color:var(--muted);margin:-2px 0 16px;line-height:1.7;">💲 Prix indicatif par personne · 🏛️ iconique · ✅ recommandé · ⭐ coup de cœur</div>
   <div class="rgrid">
-    <div class="rc"><div class="rc-day">Sam 27 · Manhattan</div><div class="rc-title">Snack + Jazz</div><div class="rc-items">Snack: Tacombi — Tacos · sur le pouce · $15 ✅<br>Snack: Luke's Lobster — Seafood · sur le pouce · $20–25 ⚪<br>🍷 Dîner: Smoke Jazz — Jazz + dîner inclus · ~$100+ 🏛️</div></div>
+    <div class="rc"><div class="rc-day">Sam 27 · Manhattan</div><div class="rc-title">Snack + Jazz</div><div class="rc-items">Snack: Tacombi — Tacos · sur le pouce · $15 ✅<br>Snack: Luke's Lobster — Seafood · sur le pouce · $20–25<br>🍷 Dîner: Smoke Jazz — Jazz + dîner inclus · ~$100+ 🏛️</div></div>
     <div class="rc"><div class="rc-day">Dim 28 · Manhattan</div><div class="rc-title">Déj + Snacks + Dîner vin</div><div class="rc-items">Déj: Katz's Delicatessen — Pastrami · depuis 1888 · $25–30 🏛️<br>Snack ~15h: Nom Wah Tea Parlor — Dim sum · Chinatown · $20–25 🏛️<br>Snack ~16h: Scarr's Pizza — Slice old school · $10 🏛️<br>Dîner: Parcelle — Vin naturel · tapas · $30–50 ✅<br>Dîner: Wildair — Vin naturel · tapas · $30–50 ✅</div></div>
     <div class="rc"><div class="rc-day">Lun 29 · Manhattan</div><div class="rc-title">Café + Déj + Dîner</div><div class="rc-items">Café: Levain Bakery — Cookie + café · UWS · $12 🏛️<br>Déj: Shake Shack — Burger · OG 2004 · Madison Sq · $15–20 🏛️<br>Dîner: Grand Central Oyster Bar — Huîtres · depuis 1913 · $50–80 🏛️<br>Dîner: Victor's Cafe — Cubain · live · $55–75 ✅<br>Dîner: Soothr — Asiatique trendy · $50–70 ✅<br>Dîner light: Momofuku Noodle Bar — Ramen · casual · $25–35 ✅</div></div>
     <div class="rc"><div class="rc-day">Mar 30 · Manhattan</div><div class="rc-title">Café + Déj + Dîner</div><div class="rc-items">Café: Kaffe 1668 — Spécialité · Tribeca · $8–12 ✅<br>Déj: Xi'an Famous Foods — Noodles épicés · sur le pouce · $12 ✅<br>Déj: Kiki's — Grec · chill · $25–35 ✅<br>Déj: Macao Trading Co — Asiatique · cocktails · $35–50 ✅<br>Dîner: Maison Premiere — Huîtres · 1920s · date · $70–100 ✅<br>Dîner: St Mazie — Cocktails · brunch bar · $45–65 ✅<br>Dîner light: OKONOMI / Yuji Ramen — Ramen · casual · $25–35 ✅</div></div>
