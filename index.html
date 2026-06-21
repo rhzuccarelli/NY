@@ -111,6 +111,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .ws-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:1px;}
 .ws-desc{font-size:10px;color:var(--muted);}
 .ws-type{font-size:10px;color:var(--subtle);margin-top:2px;}
+.ws-int{font-size:10px;color:var(--muted);line-height:1.5;margin-top:4px;}
 .rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
 .rc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
 .rc-day{font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:6px;}
@@ -667,8 +668,13 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
       <span class="i-km">–</span>
     </div>
     <div class="item">
-      <span class="i-time">Soir</span><div class="i-dot" style="background:var(--c-match)"></div>
-      <div class="i-body"><div class="i-name">🇦🇷 Argentine — Round of 32 <span class="tag tm">Match ⚽</span></div><div class="i-desc">Miami · Heure à confirmer · FOX Sports</div></div>
+      <span class="i-time">17h00 ?</span><div class="i-dot" style="background:var(--c-match)"></div>
+      <div class="i-body"><div class="i-name">🇦🇷 Argentine — Round of 32 <span class="tag tm">Match ⚽</span></div><div class="i-desc">Miami · 17h00 (à confirmer) · FOX Sports</div></div>
+      <span class="i-km">–</span>
+    </div>
+    <div class="item">
+      <span class="i-time">22h00</span><div class="i-dot" style="background:var(--c-bar)"></div>
+      <div class="i-body"><div class="i-name">🎭 Option : Bordel Chicago <span class="tag tb">Speakeasy</span></div><div class="i-desc">1721 W Division St · Burlesque · Jeu-Sam · Si pas trop fatigués</div></div>
       <span class="i-km">–</span>
     </div>
   </div>
@@ -678,35 +684,50 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
   <div class="day-head">
     <div>
       <div class="day-date">Samedi 4 juillet 🚗 · Chez ami</div>
-      <div class="day-title">Indiana Dunes 🏖️ · 4 Juillet 🎆 · Bordel</div>
-      <div class="day-km">~80 km voiture · Trail = 2.5 km</div>
+      <div class="day-title">Starved Rock 🪨 · Indiana Dunes 🏖️ · 4 Juillet 🎆</div>
+      <div class="day-km">~350 km voiture · grande journée road-trip</div>
     </div>
     <span class="day-badge b-car">🚗 Voiture</span>
   </div>
   <div class="day-body">
     <div class="item">
-      <span class="i-time">7h30</span><div class="i-dot" style="background:var(--c-alert)"></div>
-      <div class="i-body"><div class="i-name">🚗 Départ Indiana Dunes <span class="tag tal">Partir tôt!</span></div><div class="i-desc">~1h route · ⚠️ Parking plein avant 10h!</div></div>
-      <span class="i-km">~80 km</span>
+      <span class="i-time">9h00</span><div class="i-dot" style="background:var(--c-trans)"></div>
+      <div class="i-body"><div class="i-name">🚗 Départ Romeoville → Starved Rock <span class="tag ttt">Route</span></div><div class="i-desc">I-80 West · Départ matinal</div><div class="i-dur">⏱ ~1h</div></div>
+      <span class="i-km">~90 km</span>
     </div>
     <div class="item">
-      <span class="i-time">9h00</span><div class="i-dot" style="background:var(--c-act)"></div>
-      <div class="i-body"><div class="i-name">🏄 Indiana Dunes National Park <span class="tag ta">Nature</span></div><div class="i-desc">Porter, IN · $20/voiture · Trail 9 + baignade Lac Michigan</div><div class="i-dur">⏱ ~4h · Trail 9 = 2.5 km</div></div>
+      <span class="i-time">10h00</span><div class="i-dot" style="background:var(--c-act)"></div>
+      <div class="i-body"><div class="i-name">🪨 Starved Rock State Park <span class="tag ta">Nature</span></div><div class="i-desc">Illinois Canyon + LaSalle Canyon · Cascades &amp; falaises de grès</div><div class="i-dur">⏱ ~2h30 · Rando canyons</div></div>
+      <span class="i-km">Trail</span>
+    </div>
+    <div class="item">
+      <span class="i-time">12h30</span><div class="i-dot" style="background:var(--c-trans)"></div>
+      <div class="i-body"><div class="i-name">🚗 Starved Rock → Indiana Dunes <span class="tag ttt">Route</span></div><div class="i-desc">I-80 East · Trajet le plus long · Déjeuner en route</div><div class="i-dur">⏱ ~1h45</div></div>
+      <span class="i-km">~185 km</span>
+    </div>
+    <div class="item">
+      <span class="i-time">14h00</span><div class="i-dot" style="background:var(--c-act)"></div>
+      <div class="i-body"><div class="i-name">🏖️ Indiana Dunes National Park <span class="tag ta">Nature</span></div><div class="i-desc">Porter, IN · $20/voiture · Trail 9 + baignade Lac Michigan</div><div class="i-dur">⏱ ~2h · Trail 9 = 2.5 km</div></div>
       <span class="i-km">2.5 km</span>
     </div>
     <div class="item">
-      <span class="i-time">Soir</span><div class="i-dot" style="background:var(--c-concert)"></div>
-      <div class="i-body"><div class="i-name">🎻 Option : Independence Day Salute <span class="tag tco">Concert</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">Grant Park Orchestra · Millennium Park · Musique patriotique · Très populaire</div><div class="i-dur">⏱ Heure à confirmer · Ambiance festive 4 juillet</div></div>
+      <span class="i-time">16h00</span><div class="i-dot" style="background:var(--c-trans)"></div>
+      <div class="i-body"><div class="i-name">🚗 Indiana Dunes → Chicago <span class="tag ttt">Route</span></div><div class="i-desc">I-90 / I-94 · Retour en ville</div><div class="i-dur">⏱ ~1h</div></div>
+      <span class="i-km">~80 km</span>
+    </div>
+    <div class="item">
+      <span class="i-time">17h00</span><div class="i-dot" style="background:var(--c-walk)"></div>
+      <div class="i-body"><div class="i-name">🚶 Millennium Park <span class="tag tw">Balade</span></div><div class="i-desc">Arriver tôt pour une bonne place sur la pelouse (Great Lawn)</div><div class="i-dur">⏱ Installation pique-nique</div></div>
       <span class="i-km">–</span>
     </div>
     <div class="item">
-      <span class="i-time">19h30</span><div class="i-dot" style="background:var(--c-match)"></div>
-      <div class="i-body"><div class="i-name">🎆 Feux 4 Juillet — Navy Pier <span class="tag tfr">Gratuit</span></div><div class="i-desc">600 E Grand Ave · Arriver tôt</div><div class="i-dur">⏱ 2h · Spectacle ~30 min</div></div>
+      <span class="i-time">18h30</span><div class="i-dot" style="background:var(--c-concert)"></div>
+      <div class="i-body"><div class="i-name">🎻 Independence Day Salute <span class="tag tco">Concert</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">Grant Park Orchestra · Jay Pritzker Pavilion · Musique patriotique</div><div class="i-dur">⏱ ~1h30 · Ambiance festive 4 juillet</div></div>
       <span class="i-km">–</span>
     </div>
     <div class="item">
-      <span class="i-time">22h00</span><div class="i-dot" style="background:var(--c-bar)"></div>
-      <div class="i-body"><div class="i-name">🎭 Bordel Chicago <span class="tag tb">Speakeasy</span></div><div class="i-desc">1721 W Division St · Burlesque · Jeu-Sam</div></div>
+      <span class="i-time">~21h30</span><div class="i-dot" style="background:var(--c-match)"></div>
+      <div class="i-body"><div class="i-name">🎆 Feux d'artifice — Navy Pier <span class="tag tfr">Gratuit</span></div><div class="i-desc">600 E Grand Ave · Arriver tôt pour la vue</div><div class="i-dur">⏱ Spectacle ~30 min</div></div>
       <span class="i-km">–</span>
     </div>
   </div>
@@ -724,7 +745,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
   <div class="day-body">
     <div class="item">
       <span class="i-time">9h30</span><div class="i-dot" style="background:var(--c-act)"></div>
-      <div class="i-body"><div class="i-name">🚢 Museum of Science &amp; Industry — U-505 <span class="tag ta">Musée</span><span class="tag tres">Réserver!</span></div><div class="i-desc">5700 S DuSable Lake Shore Dr · Sous-marin WWII</div><div class="i-dur">⏱ 3h · ⚠️ Ferme 16h</div></div>
+      <div class="i-body"><div class="i-name">🚢 Museum of Science &amp; Industry — U-505 <span class="tag ta">Musée</span><span class="tag tres">Réserver!</span></div><div class="i-desc">5700 S DuSable Lake Shore Dr · Sous-marin WWII · 🎟️ U-505 On-Board Tour (billet à acheter)</div><div class="i-dur">⏱ 3h · ⚠️ Ferme 16h · griffinmsi.org/tickets</div></div>
       <span class="i-km">~15 km</span>
     </div>
     <div class="item">
@@ -757,29 +778,30 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
   <div class="day-body">
     <div class="item">
       <span class="i-time">9h00</span><div class="i-dot" style="background:var(--c-walk)"></div>
-      <div class="i-body"><div class="i-name">🚶 Chicago Loop Walking Tour <span class="tag tfr">Gratuit</span><span class="tag tw">19 stops · 2h30</span></div><div class="i-desc">Porter bonnes chaussures + eau</div></div>
+      <div class="i-body"><div class="i-name">🚶 Chicago Loop Walking Tour <span class="tag tfr">Gratuit</span><span class="tag tw">20 stops · ~3h</span></div><div class="i-desc">Porter bonnes chaussures + eau</div></div>
       <span class="i-km">5 km</span>
     </div>
-    <div class="wgrid">
-      <div class="ws"><span class="ws-n">1</span><div><div class="ws-name">⛲ Buckingham Fountain</div><div class="ws-desc">301 S Columbus Dr</div><div class="ws-type">Départ · 20 min</div></div></div>
-      <div class="ws"><span class="ws-n">2</span><div><div class="ws-name">🏛️ Board of Trade</div><div class="ws-desc">141 W Jackson · Art Déco</div><div class="ws-type">Stop · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">3</span><div><div class="ws-name">🪟 Cultural Center</div><div class="ws-desc">78 E Washington St</div><div class="ws-type">Stop · 15 min · Dômes!</div></div></div>
-      <div class="ws"><span class="ws-n">4</span><div><div class="ws-name">🌉 DuSable Bridge</div><div class="ws-desc">N Michigan Ave</div><div class="ws-type">Stop · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">5</span><div><div class="ws-name">🚢 McCormick Bridgehouse</div><div class="ws-desc">99 Riverwalk</div><div class="ws-type">Pass by</div></div></div>
-      <div class="ws"><span class="ws-n">6</span><div><div class="ws-name">🕊️ Vietnam Memorial</div><div class="ws-desc">24 E Wacker Dr</div><div class="ws-type">Stop · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">7</span><div><div class="ws-name">🎭 Chicago Theatre</div><div class="ws-desc">175 N State St</div><div class="ws-type">Pass by</div></div></div>
-      <div class="ws"><span class="ws-n">8</span><div><div class="ws-name">📚 Harold Washington Library</div><div class="ws-desc">400 S State St</div><div class="ws-type">Stop · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">9</span><div><div class="ws-name">🌀 Miró's Chicago</div><div class="ws-desc">77 W Washington St</div><div class="ws-type">Stop · 5 min</div></div></div>
-      <div class="ws"><span class="ws-n">10</span><div><div class="ws-name">🎨 Picasso Statue</div><div class="ws-desc">50 W Washington · Daley Plaza</div><div class="ws-type">Stop · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">11</span><div><div class="ws-name">🏗️ Rookery Building</div><div class="ws-desc">209 S LaSalle · Cour FLW</div><div class="ws-type">Stop · 10 min!</div></div></div>
-      <div class="ws"><span class="ws-n">12</span><div><div class="ws-name">🦩 Calder Flamingo</div><div class="ws-desc">210 S Dearborn St</div><div class="ws-type">Stop · 5 min</div></div></div>
-      <div class="ws"><span class="ws-n">13</span><div><div class="ws-name">🏢 Willis Tower</div><div class="ws-desc">233 S Wacker Dr</div><div class="ws-type">Pass by</div></div></div>
-      <div class="ws"><span class="ws-n">14</span><div><div class="ws-name">🏛️ Marquette Building</div><div class="ws-desc">140 S Dearborn St</div><div class="ws-type">Pass by · 1895</div></div></div>
-      <div class="ws"><span class="ws-n">15</span><div><div class="ws-name">💦 Crown Fountain</div><div class="ws-desc">Millennium Park</div><div class="ws-type">Stop · 10 min</div></div></div>
-      <div class="ws"><span class="ws-n">16</span><div><div class="ws-name">🏛️ Millennium Monument</div><div class="ws-desc">Wrigley Square</div><div class="ws-type">Stop · 5 min</div></div></div>
-      <div class="ws"><span class="ws-n">17</span><div><div class="ws-name">🎵 Jay Pritzker Pavilion</div><div class="ws-desc">201 E Randolph St</div><div class="ws-type">Pass by · Ce soir!</div></div></div>
-      <div class="ws"><span class="ws-n">18</span><div><div class="ws-name">🫘 The Bean</div><div class="ws-desc">Millennium Park</div><div class="ws-type">Stop · Photo!</div></div></div>
-      <div class="ws"><span class="ws-n">19</span><div><div class="ws-name">☕ Pause · Fin tour</div><div class="ws-desc">Riverwalk</div><div class="ws-type">~12h · 5 km total</div></div></div>
+    <div class="wgrid" style="grid-template-columns:1fr;gap:6px;">
+      <div class="ws"><span class="ws-n">1</span><div><div class="ws-name">⛲ Buckingham Fountain</div><div class="ws-int">Une des plus grandes fontaines du monde · inspirée de Versailles · jets d'eau jusqu'à 46 m · symbole de Chicago depuis 1927 · spectacle aquatique toutes les heures en été</div><div class="ws-type">301 S Columbus Dr · 20 min</div></div></div>
+      <div class="ws"><span class="ws-n">2</span><div><div class="ws-name">🏛️ Chicago Board of Trade</div><div class="ws-int">Chef-d'œuvre Art Déco 1930 · statue de Cérès (déesse des moissons) au sommet · ancien cœur financier des marchés à terme US · lobby accessible gratuitement</div><div class="ws-type">141 W Jackson Blvd · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">3</span><div><div class="ws-name">🪟 Chicago Cultural Center ⭐</div><div class="ws-int">⭐ Incontournable · plus grand dôme Tiffany du monde (Preston Bradley Hall) · expos d'art contemporain gratuites · architecture Beaux-Arts 1897 · entrer obligatoire !</div><div class="ws-type">78 E Washington St · 15 min</div></div></div>
+      <div class="ws"><span class="ws-n">4</span><div><div class="ws-name">🌉 DuSable Bridge</div><div class="ws-int">Pont bascule historique 1920 · tours ornementées avec bas-reliefs retraçant l'histoire de Chicago · vue panoramique sur la rivière et les gratte-ciels · meilleure photo skyline du Loop</div><div class="ws-type">N Michigan Ave &amp; Chicago River · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">5</span><div><div class="ws-name">🚢 McCormick Bridgehouse</div><div class="ws-int">Musée à l'intérieur du mécanisme du pont bascule · engrenages géants visibles · comprendre comment fonctionne le pont · ouvert mer-dim</div><div class="ws-type">99 Chicago Riverwalk · Pass by</div></div></div>
+      <div class="ws"><span class="ws-n">6</span><div><div class="ws-name">🕊️ Vietnam Veterans Memorial</div><div class="ws-int">Mur de granit poli reflétant la rivière · noms des soldats de l'Illinois gravés · emplacement intimiste au bord de l'eau · sobre et émouvant</div><div class="ws-type">24 E Wacker Dr · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">7</span><div><div class="ws-name">🎭 The Chicago Theatre</div><div class="ws-int">Marquee néon emblématique 1921 · style baroque français · une des enseignes les plus photographiées de la ville · salle de spectacle encore active</div><div class="ws-type">175 N State St · Pass by</div></div></div>
+      <div class="ws"><span class="ws-n">8</span><div><div class="ws-name">📚 Harold Washington Library</div><div class="ws-int">Plus grande bibliothèque publique du monde à son inauguration · Winter Garden au 9e étage (immense véranda verre &amp; acier) · oasis cachée et gratuite en plein Loop · architecture postmoderne spectaculaire</div><div class="ws-type">400 S State St · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">9</span><div><div class="ws-name">🏨 Palmer House Hilton ⭐</div><div class="ws-int">⭐ Stop gourmand + architecture · lobby néo-baroque parmi les plus beaux des USA (plafonds peints à la main, fresques, dorures, piliers monumentaux), inauguré 1873 · 🍫 brownie original inventé ici en 1893 pour l'Exposition Universelle, encore servi selon la recette d'origine (sauce abricot + noix) au Lockwood ou café du lobby · entrée libre dans le lobby</div><div class="ws-type">17 E Monroe St · 20 min</div></div></div>
+      <div class="ws"><span class="ws-n">10</span><div><div class="ws-name">🌀 Miró's Chicago</div><div class="ws-int">Sculpture surréaliste de Joan Miró offerte à Chicago en 1981 · bronze + céramique + mosaïque · représente une femme cosmique · face au Picasso, les deux œuvres se répondent · gratuit</div><div class="ws-type">77 W Washington St · 5 min</div></div></div>
+      <div class="ws"><span class="ws-n">11</span><div><div class="ws-name">🎨 Picasso Statue</div><div class="ws-int">Sculpture abstraite de 15 m offerte par Picasso à Chicago en 1967 · mystère total sur ce qu'elle représente (femme ? chien ? Jacqueline Picasso ?) · Daley Plaza · cadeau sans contrepartie · gratuit</div><div class="ws-type">50 W Washington St · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">12</span><div><div class="ws-name">🏗️ The Rookery Building ⭐</div><div class="ws-int">⭐ Incontournable · plus vieux gratte-ciel de Chicago encore debout (1888) · cour intérieure entièrement redessinée par Frank Lloyd Wright en 1905 · lumière naturelle + ornements dorés spectaculaires · entrée libre dans le lobby</div><div class="ws-type">209 S LaSalle St · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">13</span><div><div class="ws-name">🦩 Calder's Flamingo</div><div class="ws-int">Sculpture rouge en acier de 16 m signée Alexander Calder · inaugurée en 1974 · contraste saisissant avec les tours de verre et acier du Federal Plaza · art public monumental · gratuit</div><div class="ws-type">210 S Dearborn St · 5 min</div></div></div>
+      <div class="ws"><span class="ws-n">14</span><div><div class="ws-name">🏢 Willis Tower</div><div class="ws-int">Ancien plus haut bâtiment du monde (1973–1998) · 442 m · 110 étages · architecture en faisceaux tubulaires unique au monde · vue extérieure suffit amplement</div><div class="ws-type">233 S Wacker Dr · Pass by</div></div></div>
+      <div class="ws"><span class="ws-n">15</span><div><div class="ws-name">🏛️ Marquette Building</div><div class="ws-int">Joyau de l'École de Chicago 1895 · lobby avec mosaïques en verre retraçant l'exploration de l'Amérique par Jacques Marquette · un des premiers gratte-ciels de l'histoire de l'architecture</div><div class="ws-type">140 S Dearborn St · Pass by</div></div></div>
+      <div class="ws"><span class="ws-n">16</span><div><div class="ws-name">💦 Crown Fountain</div><div class="ws-int">Deux tours de verre de 15 m projetant des visages de vrais Chicagoans en vidéo · l'eau jaillit de la bouche des visages en été · œuvre de Jaume Plensa · interactif, les enfants adorent</div><div class="ws-type">Millennium Park · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">17</span><div><div class="ws-name">🏛️ Millennium Monument</div><div class="ws-int">Colonnade néoclassique reconstruite en 2001 · réplique fidèle de l'originale de 1917 · encadre majestueusement le Millennium Park côté Michigan Ave · gratuit</div><div class="ws-type">Wrigley Square · 5 min</div></div></div>
+      <div class="ws"><span class="ws-n">18</span><div><div class="ws-name">🎵 Jay Pritzker Pavilion</div><div class="ws-int">Scène de concert outdoor dessinée par Frank Gehry · ruban d'acier spectaculaire · acoustique exceptionnelle grâce à un réseau de haut-parleurs sur toute la pelouse · 🎬 Ratatouille ici ce soir à 18h30 !</div><div class="ws-type">201 E Randolph St · Pass by</div></div></div>
+      <div class="ws"><span class="ws-n">19</span><div><div class="ws-name">🫘 Cloud Gate — The Bean ⭐</div><div class="ws-int">⭐ Photo absolument obligatoire · sculpture de 110 tonnes d'acier poli · reflète le skyline + les visiteurs de façon déformée · dessous appelé « l'ombilic » · chef-d'œuvre d'Anish Kapoor · gratuit</div><div class="ws-type">Millennium Park · 10 min</div></div></div>
+      <div class="ws"><span class="ws-n">20</span><div><div class="ws-name">☕ Pause + Fin du tour</div><div class="ws-int">Fin de la boucle · pause café au bord de l'eau pour récupérer avant le déjeuner</div><div class="ws-type">Chicago Riverwalk · ~12h</div></div></div>
     </div>
     <div class="item" style="margin-top:8px;">
       <span class="i-time">Midi</span><div class="i-dot" style="background:var(--c-resto)"></div>
@@ -944,6 +966,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     <div class="alert-title">🌆 CHICAGO</div>
     <div class="alert-item">🚤 Architecture Boat → MAINTENANT · sold out juillet!</div>
     <div class="alert-item">🏛️ Frank Lloyd Wright → flwright.org · dim 5 jul</div>
+    <div class="alert-item">🚢 U-505 On-Board Tour → griffinmsi.org/tickets · dim 5 jul</div>
     <div class="alert-item">🍽️ Girl &amp; the Goat / Monteverde / Au Cheval → Réserver</div>
   </div>
 </div>
@@ -960,15 +983,21 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     <div class="sec-eye">Sélection @anaisraluy</div>
     <div class="sec-title">🍽️ Restaurants par jour</div>
   </div>
+  <div style="font-size:11px;color:var(--muted);margin:-2px 0 16px;line-height:1.7;">💲 Prix indicatif par personne · ✅ = sélection Anais · ⚪ = autre adresse · ⭐ / 🌟 coups de cœur &amp; Michelin</div>
   <div class="rgrid">
-    <div class="rc"><div class="rc-day">Sam 27 · Chelsea</div><div class="rc-title">Snack + Jazz</div><div class="rc-items">Snack: Suprema · Tacombi · Luke's<br>🍷 Dîner inclus Smoke Jazz</div></div>
-    <div class="rc"><div class="rc-day">Dim 28 · Meatpacking → LES</div><div class="rc-title">Brunch + Déj + Vin</div><div class="rc-items">Brunch: Petite Boucherie / Wild<br>Déj: Shuka ⭐ / Tomiño<br>Soir: Parcelle / Wildair</div></div>
-    <div class="rc"><div class="rc-day">Lun 29 · Uptown → Midtown</div><div class="rc-title">Café + Déj + Huîtres</div><div class="rc-items">Café: Levain Bakery<br>Déj: Momosan / Keens<br>Soir: Oyster Bar 🦪<br>Dîner: Victor's / Soothr</div></div>
-    <div class="rc"><div class="rc-day">Mar 30 · Tribeca → Williamsburg</div><div class="rc-title">Café + Déj + Dîner</div><div class="rc-items">Café: Kaffe 1668<br>Déj: Tetsu / Kiki's<br>Dîner: Lilia 🌟 / Maison Premiere</div></div>
-    <div class="rc"><div class="rc-day">Mer 1 · Brooklyn</div><div class="rc-title">Brunch + Déj + Dîner</div><div class="rc-items">Brunch: Sunday in Brooklyn ⭐<br>Déj: Time Out Market<br>Dîner: Four Horsemen 🌟 / Meadowsweet</div></div>
-    <div class="rc"><div class="rc-day">Jeu 2 · Williamsburg</div><div class="rc-title">Brunch + Déj + Dîner</div><div class="rc-items">Brunch: Chez Ma Tante ⭐<br>Déj: Zona Rosa / Antidote<br>Dîner: Salt + Charcoal / Win Son</div></div>
-    <div class="rc"><div class="rc-day">Ven 3 · Café BK</div><div class="rc-title">Café avant vol</div><div class="rc-items">Devocion · 148 Grand St<br>PPL · 189 Roebling St</div></div>
-    <div class="rc"><div class="rc-day">Chicago — Top restos</div><div class="rc-title">À réserver</div><div class="rc-items">Au Cheval · Girl &amp; Goat<br>Monteverde 🌟 · HaiSous<br>Buddy Guy's · Blue Chicago<br>Giordano's deep dish</div></div>
+    <div class="rc"><div class="rc-day">Sam 27 · Manhattan</div><div class="rc-title">Snack + Jazz</div><div class="rc-items">Snack 18h: Suprema — Burger chill · $15–20 ⚪<br>Snack: Tacombi — Tacos · $15–20 ✅<br>Snack: Luke's Lobster — Seafood · $20–25 ⚪<br>🍷 Dîner 20h: Smoke Jazz — Jazz + américain · ~$100+ ✅</div></div>
+    <div class="rc"><div class="rc-day">Dim 28 · Manhattan</div><div class="rc-title">Brunch + Déj + Soir vin</div><div class="rc-items">Brunch: Petite Boucherie — Français · $25–35 ⚪<br>Brunch: Wild — Gluten-free · $25–35 ✅<br>Brunch: Smør — Chill · $20–30 ✅<br>Déj: Shuka ⭐ — Méditerranéen · $35–50 ✅<br>Déj: Tomiño — Tapas gallegas · pulpo · $30–45 ✅<br>Déj: La Mercerie — Français romantique · $40–55 ✅<br>Soir: Parcelle — Vin naturel · date · $30–50 ✅<br>Soir: Wildair — Vin naturel · tapas · $30–50 ✅</div></div>
+    <div class="rc"><div class="rc-day">Lun 29 · Manhattan</div><div class="rc-title">Café + Déj + Huîtres + Dîner</div><div class="rc-items">Café: Levain Bakery — Cookies · $10–15 ✅<br>Déj: Momosan — Ramen rapide · $25–35 ⚪<br>Déj: Keens — Steakhouse historique · $60–80 ✅<br>~18h45: Grand Central Oyster Bar — Fruits de mer · 80 vins · $50–80 ⚪ ⚠️ Lun-Ven<br>Dîner: Victor's Cafe — Cubain · live · $55–75 ✅<br>Dîner: Soothr — Asiatique trendy · $50–70 ✅<br>Dîner: Minetta Tavern — Burger légendaire · $60–80 ✅</div></div>
+    <div class="rc"><div class="rc-day">Mar 30 · Manhattan</div><div class="rc-title">Café + Déj + Dîner</div><div class="rc-items">Café: Kaffe 1668 — Spécialité · $8–12 ✅<br>Déj: Tetsu — Japonais (Chef Masa) · Tribeca · $45–65 ✅<br>Déj: Kiki's — Grec · LES · $30–45 ✅<br>Déj: Macao Trading Co — Asiatique · cocktails · $35–50 ✅<br>Dîner: Lilia 🌟 — Pâtes icône · Michelin · $80–110 ✅<br>Dîner: Maison Premiere — Huîtres · date · $70–100 ✅<br>Dîner: St Mazie — Brunch bar · cocktails · $45–65 ✅</div></div>
+    <div class="rc"><div class="rc-day">Mer 1 · Brooklyn</div><div class="rc-title">Brunch + Déj + Dîner</div><div class="rc-items">Brunch: Sunday in Brooklyn ⭐ — Pancakes · $25–40 ✅<br>Brunch: Cafe Mogador — Marocain · $20–35 ✅<br>Brunch: Marlow &amp; Sons — Huîtres + vins · $30–45 ✅<br>Déj: Time Out Market DUMBO — Food hall · vue pont · $20–35 ⚪<br>Déj: Roberta's — Pizza Bushwick · $25–40 ✅<br>Dîner: The Four Horsemen 🌟 — Michelin · vin naturel · $80–110 ✅<br>Dîner: Meadowsweet 🌟 — Michelin · date · $80–110 ✅<br>Dîner: Llama Inn — Péruvien · $55–75 ✅</div></div>
+    <div class="rc"><div class="rc-day">Jeu 2 · Brooklyn</div><div class="rc-title">Brunch + Déj + Dîner</div><div class="rc-items">Brunch: Chez Ma Tante ⭐ — Omelette · Greenpoint · $25–40 ✅<br>Brunch: Five Leaves — Chill · Greenpoint · $25–35 ✅<br>Brunch: Strangeways — Burger · terrasse · $20–35 ✅<br>Déj: Zona Rosa — Tacos · junk food · $15–25 ✅<br>Déj: Antidote — Resto · cocktails · $30–45 ✅<br>Dîner: Salt + Charcoal — Cocktails · date · $45–65 ✅<br>Dîner: Win Son — Taïwanais · $40–60 ✅</div></div>
+    <div class="rc"><div class="rc-day">Ven 3 · Café BK</div><div class="rc-title">Café avant le vol</div><div class="rc-items">Café: Devocion — Meilleur café BK · verrière · $8–12 ✅<br>Café: PPL — Café chill · $6–10 ✅</div></div>
+    <div class="rc"><div class="rc-day">Ven 3 · Chicago</div><div class="rc-title">Dîner Fulton Market</div><div class="rc-items">Dîner: Au Cheval — Burger légendaire · $50–70 ✅<br>Dîner: Girl &amp; the Goat — Partage créatif · $65–90 ✅<br>Dîner: Rose Mary — Croate-Italien · Fulton · $60–85 ✅</div></div>
+    <div class="rc"><div class="rc-day">Sam 4 · Chicago</div><div class="rc-title">Déjeuner retour</div><div class="rc-items">Déj retour: Beatnik On The River — Méditerranéen · vue rivière · $50–70 ✅</div></div>
+    <div class="rc"><div class="rc-day">Dim 5 · Chicago</div><div class="rc-title">Dîner</div><div class="rc-items">Dîner: Izakaya Momotaro — Japonais · ambiance Tokyo · $45–65 ✅<br>Dîner: Beatnik On The River — Méditerranéen · rivière · $50–70 ✅<br>Dîner: The Loyalist — Burger · cocktails · $35–55 ✅</div></div>
+    <div class="rc"><div class="rc-day">Lun 7 · Chicago</div><div class="rc-title">Pause + Déj + Dîner</div><div class="rc-items">🍫 ~10h30: Palmer House — Brownie original 1893 · $10–15 ⚪<br>Déj: RPM Italian — Italien · vue rivière · $40–55 ✅<br>Déj: The Purple Pig — Méditerranéen · Michigan Ave · $35–50 ✅<br>Dîner: Monteverde 🌟 — Pâtes · Michelin · $65–90 ✅<br>Dîner: Duck Duck Goat — Chinois créatif · $55–75 ✅</div></div>
+    <div class="rc"><div class="rc-day">Mar 8 · Chicago</div><div class="rc-title">Déj + Blues</div><div class="rc-items">Déj: HaiSous — Vietnamien créatif · Pilsen · $30–45 ✅<br>Déj: Dusek's Board &amp; Beer — Bières craft · $30–45 ✅<br>Soir: Buddy Guy's Legends — Soul food + blues live · $35–55 ✅</div></div>
+    <div class="rc"><div class="rc-day">Mer 9 · Chicago</div><div class="rc-title">Déjeuner</div><div class="rc-items">Déj: Giordano's — Deep dish pizza · classique · $25–35 ✅</div></div>
   </div>
 </div>
 </div>
