@@ -1,0 +1,5 @@
+# JetBrains / WebStorm project metadata
+.idea/
+
+# macOS
+.DS_Store
