@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NYC · Brooklyn · Chicago — Juin/Juillet 2026</title>
+<title>Barcelona → NYC → Chicago → Seattle — Été 2026</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
@@ -22,6 +22,10 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .cover-route{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.4);flex-wrap:wrap;justify-content:center;}
 .route-c{color:rgba(255,255,255,.8);font-weight:500;}
 .route-a{color:rgba(255,220,120,.6);}
+.cover-legs{display:flex;flex-direction:column;gap:7px;width:100%;max-width:430px;margin:4px 0 44px;}
+.cleg{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:7px;}
+.cleg-c{color:rgba(255,255,255,.85);font-weight:500;font-size:14px;}
+.cleg-d{color:rgba(255,220,120,.7);font-size:12px;white-space:nowrap;letter-spacing:.02em;}
 .nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:200;display:flex;overflow-x:auto;box-shadow:0 1px 8px rgba(0,0,0,.06);scrollbar-width:none;}
 .nav::-webkit-scrollbar{display:none;}
 .nav a{padding:14px 18px;text-decoration:none;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
@@ -135,20 +139,20 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 
 <div class="cover">
   <div class="cover-eye">Guide de voyage personnel · Été 2026</div>
-  <div class="cover-title">New York<span class="cover-amp">&amp;</span>Chicago</div>
-  <div class="cover-sub">27 juin — 10 juillet 2026 · 2 personnes</div>
+  <div class="cover-title" style="font-size:clamp(26px,4.6vw,48px);line-height:1.12;">Barcelona <span class="route-a">→</span> NYC/Brooklyn <span class="route-a">→</span> Chicago <span class="route-a">→</span> Seattle <span class="route-a">→</span> Barcelona</div>
+  <div class="cover-sub">27 juin — 14 juillet 2026 · 2 personnes</div>
+  <div class="cover-legs">
+    <div class="cleg"><span class="cleg-c">🛫 Barcelona</span><span class="cleg-d">27 juin · départ</span></div>
+    <div class="cleg"><span class="cleg-c">🗽 NYC / Brooklyn</span><span class="cleg-d">27–30 juin · 30 juin – 3 juil</span></div>
+    <div class="cleg"><span class="cleg-c">🌆 Chicago</span><span class="cleg-d">3 – 10 juillet</span></div>
+    <div class="cleg"><span class="cleg-c">🌲 Seattle</span><span class="cleg-d">10 – 13 juillet</span></div>
+    <div class="cleg"><span class="cleg-c">🛬 Barcelona</span><span class="cleg-d">14 juillet · retour</span></div>
+  </div>
   <div class="cover-stats">
-    <div><span class="stat-n">14</span><span class="stat-l">Nuits</span></div>
-    <div><span class="stat-n">3</span><span class="stat-l">Villes</span></div>
+    <div><span class="stat-n">16</span><span class="stat-l">Nuits</span></div>
+    <div><span class="stat-n">4</span><span class="stat-l">Villes</span></div>
     <div><span class="stat-n">~65</span><span class="stat-l">km à pied</span></div>
     <div><span class="stat-n">🇦🇷</span><span class="stat-l">Argentina WC</span></div>
-  </div>
-  <div class="cover-route">
-    <span class="route-c">Barcelone</span><span class="route-a">→</span>
-    <span class="route-c">Newark/NYC</span><span class="route-a">→</span>
-    <span class="route-c">Brooklyn</span><span class="route-a">→</span>
-    <span class="route-c">Chicago</span><span class="route-a">→</span>
-    <span class="route-c">Seattle</span>
   </div>
 </div>
 
@@ -1054,7 +1058,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 </div>
 </div>
 
-<footer>NYC · Brooklyn · Chicago — Juin/Juillet 2026 · Bon voyage ! 🌍</footer>
+<footer>Barcelona → NYC → Brooklyn → Chicago → Seattle → Barcelona · Été 2026 · Bon voyage ! 🌍</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
