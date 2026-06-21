@@ -138,7 +138,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 <div class="cover">
   <div class="cover-eye">Guide de voyage personnel · Été 2026</div>
   <div class="cover-title">Trip USA</div>
-  <div class="cover-sub">27 juin — 14 juillet 2026 · 2 personnes</div>
+  <div class="cover-sub">27 juin — 14 juillet 2026 · Alexia &amp; Ricardo</div>
   <div class="cover-route" style="margin:6px 0 40px;">
     <span class="rstop"><span class="route-c">Barcelona</span><span class="rstop-d">27 juin</span></span>
     <span class="route-a">→</span>
@@ -274,19 +274,9 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
       <span class="i-km">1.5 km</span>
     </div>
     <div class="item">
-      <span class="i-time">~16h</span><div class="i-dot" style="background:var(--c-passby)"></div>
-      <div class="i-body"><div class="i-name">🕯️ 9/11 Memorial <span class="tag tp">Pass by</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">180 Greenwich St · Vue extérieure bassins</div><div class="i-dur">⏱ 15 min · 1 km depuis Chinatown</div></div>
-      <span class="i-km">1 km</span>
-    </div>
-    <div class="item">
-      <span class="i-time">~16h20</span><div class="i-dot" style="background:var(--c-passby)"></div>
-      <div class="i-body"><div class="i-name">👁️ One World Observatory <span class="tag tp">Pass by</span></div><div class="i-desc">285 Fulton St · Tour Freedom · Vue extérieure</div><div class="i-dur">⏱ 5 min · 0.3 km</div></div>
-      <span class="i-km">0.3 km</span>
-    </div>
-    <div class="item">
-      <span class="i-time">~16h30</span><div class="i-dot" style="background:var(--c-act)"></div>
-      <div class="i-body"><div class="i-name">💰 Wall Street <span class="tag ta">Stop 30 min</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">Charging Bull · NYSE · Federal Hall</div><div class="i-dur">⏱ 30 min · 0.5 km</div></div>
-      <span class="i-km">0.5 km</span>
+      <span class="i-time">~16h</span><div class="i-dot" style="background:var(--c-walk)"></div>
+      <div class="i-body"><div class="i-name">🚶 Balade Financial District <span class="tag tw">Balade</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">🕯️ 9/11 Memorial (bassins) → 👁️ One World Observatory (Tour Freedom) → 💰 Wall Street (Charging Bull · NYSE · Federal Hall)</div><div class="i-dur">⏱ ~1h · ~1.8 km · stop 30 min à Wall St</div></div>
+      <span class="i-km">~1.8 km</span>
     </div>
     <div class="item">
       <span class="i-time">~18h</span><div class="i-dot" style="background:var(--c-resto)"></div>
@@ -440,6 +430,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
       <div class="leg"><div class="leg-dot" style="background:var(--c-walk)"></div>Balade</div>
       <div class="leg"><div class="leg-dot" style="background:var(--c-passby)"></div>Pass by</div>
       <div class="leg"><div class="leg-dot" style="background:var(--c-match)"></div>Match</div>
+      <div class="leg"><span style="display:inline-block;width:16px;border-top:2px dashed var(--c-walk);"></span>Parcours à pied</div>
     </div>
   </div>
 </div>
@@ -622,6 +613,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
       <div class="leg"><div class="leg-dot" style="background:var(--c-brunch)"></div>Brunch</div>
       <div class="leg"><div class="leg-dot" style="background:var(--c-bar)"></div>Bar</div>
       <div class="leg"><div class="leg-dot" style="background:var(--c-walk)"></div>Balade</div>
+      <div class="leg"><span style="display:inline-block;width:16px;border-top:3px solid #c0392b;"></span>Parcours vélo</div>
     </div>
   </div>
 </div>
@@ -962,6 +954,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
       <div class="leg"><div class="leg-dot" style="background:var(--c-walk)"></div>Balade</div>
       <div class="leg"><div class="leg-dot" style="background:var(--c-concert)"></div>Concert</div>
       <div class="leg"><div class="leg-dot" style="background:var(--c-match)"></div>Match/Film</div>
+      <div class="leg"><span style="display:inline-block;width:16px;border-top:2px dashed var(--c-walk);"></span>Parcours à pied</div>
     </div>
   </div>
 </div>
@@ -1040,11 +1033,12 @@ function pop(name,type,desc,addr){
   const cl=C[type]||'#666';const lb=L[type]||type;
   return `<div class="pop-name">${name}</div><span class="pop-tag" style="background:${cl}18;color:${cl};border:1px solid ${cl}40;">${lb}</span><div class="pop-desc" style="margin-top:6px;">${desc}</div><div class="pop-addr">📍 ${addr}</div>`;
 }
-function makeMap(id,lat,lng,zm,pts){
+function makeMap(id,lat,lng,zm,pts,routes){
   const m=L.map(id,{center:[lat,lng],zoom:zm,zoomControl:false,scrollWheelZoom:false});
   m.on('focus',()=>m.scrollWheelZoom.enable());m.on('blur',()=>m.scrollWheelZoom.disable());
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',maxZoom:19}).addTo(m);
   L.control.zoom({position:'bottomright'}).addTo(m);
+  (routes||[]).forEach(r=>L.polyline(r.p,{color:r.c,weight:r.w||3,opacity:.6,dashArray:r.d||null,lineJoin:'round'}).addTo(m));
   pts.forEach(p=>L.marker([p[0],p[1]],{icon:pin(p[3])}).addTo(m).bindPopup(pop(p[2],p[4],p[5],p[6]),{maxWidth:240}));
   return m;
 }
@@ -1091,7 +1085,6 @@ const BK=[
   [40.7197,-73.9600,'Cafe Mogador','#1e7a52','brunch','Marocain','133 Wythe Ave'],
   [40.7141,-73.9505,'Llama Inn','#b8620b','resto','Péruvien · tendance','50 Withers St'],
   [40.7148,-73.9614,'Maison Premiere','#b8620b','resto','Huîtres · 1920s · date','298 Bedford Ave'],
-  [40.7143,-73.9617,'Maison Premiere','#b8620b','resto','Huîtres · Date','298 Bedford Ave'],
   [40.7259,-73.9563,'Chez Ma Tante ⭐','#1e7a52','brunch','Brunch Greenpoint','90 Calyer St'],
   [40.7148,-73.9220,'Devocion','#1e7a52','brunch','Meilleur café BK','148 Grand St'],
   [40.7031,-73.9920,'Time Out Market','#b8620b','resto','Food hall DUMBO','55 Water St'],
@@ -1123,10 +1116,21 @@ const CHI=[
   [41.8885,-87.6267,'Freehand 🏨','#6a4e1e','hotel','19 E Ohio St · River North','19 E Ohio St'],
 ];
 
+// Parcours indicatifs (balades à pied / boucle à vélo)
+const NYC_R=[
+  {c:'#2e7a3e',d:'4,7',p:[[40.7402,-74.0093],[40.7290,-74.0035],[40.7200,-73.9965],[40.7158,-73.9975],[40.7111,-74.0131],[40.7130,-74.0137],[40.7069,-74.0089],[40.7163,-73.9942]]},
+  {c:'#7a2a8a',d:'4,7',p:[[40.7780,-73.9827],[40.7781,-73.9736],[40.7829,-73.9590],[40.7814,-73.9700],[40.7812,-73.9665],[40.7484,-73.9967],[40.7484,-73.9856],[40.7411,-73.9897],[40.7614,-73.9776],[40.7588,-73.9787],[40.7527,-73.9772]]},
+];
+const BK_R=[
+  {c:'#c0392b',w:4,p:[[40.7148,-73.9678],[40.7106,-73.9665],[40.7140,-73.9745],[40.7185,-73.9888],[40.7110,-74.0040],[40.7061,-73.9969],[40.7024,-73.9923],[40.6960,-73.9955],[40.6995,-73.9985],[40.7090,-73.9690],[40.7180,-73.9568]]},
+];
+const CHI_R=[
+  {c:'#2e7a3e',d:'4,7',p:[[41.8757,-87.6189],[41.8838,-87.6250],[41.8887,-87.6247],[41.8856,-87.6278],[41.8763,-87.6281],[41.8840,-87.6303],[41.8792,-87.6318],[41.8789,-87.6359],[41.8814,-87.6240],[41.8826,-87.6233]]},
+];
 window.addEventListener('load',()=>{
-  makeMap('map-nyc',40.748,-73.990,13,NYC);
-  makeMap('map-bk',40.714,-73.957,13,BK);
-  makeMap('map-chi',41.882,-87.630,12,CHI);
+  makeMap('map-nyc',40.748,-73.990,13,NYC,NYC_R);
+  makeMap('map-bk',40.714,-73.957,13,BK,BK_R);
+  makeMap('map-chi',41.882,-87.630,12,CHI,CHI_R);
 });
 </script>
 </body>
