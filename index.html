@@ -104,6 +104,10 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .map-box{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);}
 .map-title{padding:14px 18px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text);background:var(--bg);}
 #map-nyc,#map-bk,#map-chi{height:460px;width:100%;}
+.item.hl,.ws.hl{animation:hl 1.6s ease;}
+@keyframes hl{0%,25%{box-shadow:inset 0 0 0 999px rgba(255,205,70,.4);}100%{box-shadow:inset 0 0 0 999px rgba(255,205,70,0);}}
+.pindot.pulse{animation:pulse 1s ease 2;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.55);}70%{box-shadow:0 0 0 15px rgba(192,57,43,0);}100%{box-shadow:0 0 0 0 rgba(192,57,43,0);}}
 .map-legend{padding:12px 16px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px;background:var(--bg);}
 .leg{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:500;}
 .leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
@@ -1026,20 +1030,41 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-function pin(c){return L.divIcon({html:`<div style="width:13px;height:13px;border-radius:50%;background:${c};border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);"></div>`,className:'',iconSize:[13,13],iconAnchor:[6.5,6.5]});}
+function pin(c){return L.divIcon({html:`<div class="pindot" style="width:13px;height:13px;border-radius:50%;background:${c};border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);"></div>`,className:'',iconSize:[13,13],iconAnchor:[6.5,6.5]});}
 function pop(name,type,desc,addr){
   const C={'act':'#2a4f8a','resto':'#b8620b','brunch':'#1e7a52','bar':'#7a2a8a','walk':'#2e7a3e','passby':'#888','match':'#1e7a3e','jazz':'#a83060','hotel':'#6a4e1e','concert':'#5a3a8a'};
   const L={'act':'Activité','resto':'Restaurant','brunch':'Brunch/Café','bar':'Bar','walk':'Balade','passby':'Pass by','match':'Événement','jazz':'Jazz','hotel':'Hôtel','concert':'Concert'};
   const cl=C[type]||'#666';const lb=L[type]||type;
   return `<div class="pop-name">${name}</div><span class="pop-tag" style="background:${cl}18;color:${cl};border:1px solid ${cl}40;">${lb}</span><div class="pop-desc" style="margin-top:6px;">${desc}</div><div class="pop-addr">📍 ${addr}</div>`;
 }
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]/g,'');}
+function flash(el){el.classList.remove('hl');void el.offsetWidth;el.classList.add('hl');}
 function makeMap(id,lat,lng,zm,pts,routes){
   const m=L.map(id,{center:[lat,lng],zoom:zm,zoomControl:false,scrollWheelZoom:false});
   m.on('focus',()=>m.scrollWheelZoom.enable());m.on('blur',()=>m.scrollWheelZoom.disable());
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',maxZoom:19}).addTo(m);
   L.control.zoom({position:'bottomright'}).addTo(m);
   (routes||[]).forEach(r=>L.polyline(r.p,{color:r.c,weight:r.w||3,opacity:.6,dashArray:r.d||null,lineJoin:'round'}).addTo(m));
-  pts.forEach(p=>L.marker([p[0],p[1]],{icon:pin(p[3])}).addTo(m).bindPopup(pop(p[2],p[4],p[5],p[6]),{maxWidth:240}));
+  const sec=document.getElementById(id.replace('map-',''));
+  const items=sec?[...sec.querySelectorAll('.item,.ws')]:[];
+  pts.forEach(p=>{
+    const mk=L.marker([p[0],p[1]],{icon:pin(p[3])}).addTo(m).bindPopup(pop(p[2],p[4],p[5],p[6]),{maxWidth:240});
+    const key=norm(p[2]);
+    const item=key.length>=4?items.find(el=>norm(el.textContent).includes(key)):null;
+    if(item){
+      mk.on('click',()=>{item.scrollIntoView({behavior:'smooth',block:'center'});flash(item);});
+      if(!item.dataset.linked){
+        item.dataset.linked='1';item.style.cursor='pointer';item.title='📍 Voir sur la carte';
+        item.addEventListener('click',()=>{
+          m.flyTo([p[0],p[1]],15,{duration:.6});
+          setTimeout(()=>mk.openPopup(),620);
+          if(window.innerWidth<=940)document.getElementById(id).scrollIntoView({behavior:'smooth',block:'center'});
+          const dot=mk.getElement()&&mk.getElement().querySelector('.pindot');
+          if(dot){dot.classList.remove('pulse');void dot.offsetWidth;dot.classList.add('pulse');}
+        });
+      }
+    }
+  });
   return m;
 }
 
@@ -1125,7 +1150,9 @@ const BK_R=[
   {c:'#c0392b',w:4,p:[[40.7148,-73.9678],[40.7106,-73.9665],[40.7140,-73.9745],[40.7185,-73.9888],[40.7110,-74.0040],[40.7061,-73.9969],[40.7024,-73.9923],[40.6960,-73.9955],[40.6995,-73.9985],[40.7090,-73.9690],[40.7180,-73.9568]]},
 ];
 const CHI_R=[
+  {c:'#2a4f8a',d:'4,7',p:[[41.8826,-87.6233],[41.8798,-87.6235],[41.8846,-87.6476]]},
   {c:'#2e7a3e',d:'4,7',p:[[41.8757,-87.6189],[41.8838,-87.6250],[41.8887,-87.6247],[41.8856,-87.6278],[41.8763,-87.6281],[41.8840,-87.6303],[41.8792,-87.6318],[41.8789,-87.6359],[41.8814,-87.6240],[41.8826,-87.6233]]},
+  {c:'#7a2a8a',d:'4,7',p:[[41.8579,-87.6598],[41.8885,-87.6241],[41.8730,-87.6262]]},
 ];
 window.addEventListener('load',()=>{
   makeMap('map-nyc',40.748,-73.990,13,NYC,NYC_R);
