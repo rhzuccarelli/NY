@@ -359,7 +359,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
     </div>
     <div class="item">
       <span class="i-time">~17h30</span><div class="i-dot" style="background:var(--c-walk)"></div>
-      <div class="i-body"><div class="i-name">🚶 Balade Rockefeller → Grand Central <span class="tag tw">Balade</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">🏢 Rockefeller Center (Art Déco · Atlas statue) → 🚂 Grand Central Terminal (Beaux-Arts · plafond étoilé · Whispering Gallery)</div><div class="i-dur">⏱ ~1h · stop ~30 min chacun</div></div>
+      <div class="i-body"><div class="i-name">🚶 Balade Rockefeller → Grand Central → Chrysler <span class="tag tw">Balade</span><span class="tag tfr">Gratuit</span></div><div class="i-desc">🏢 Rockefeller Center (Art Déco · Atlas statue) → 🚂 Grand Central Terminal (Beaux-Arts · plafond étoilé · Whispering Gallery) → 🏙️ Chrysler Building (lobby Art Déco + façade · intérieur seulement · 405 Lexington Ave · à 1 bloc de Grand Central)</div><div class="i-dur">⏱ ~1h15 · stops ~20–30 min</div></div>
       <span class="i-km">~1 km</span>
     </div>
     <div class="item">
@@ -640,13 +640,13 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 <div class="sec-head">
   <div class="sec-eye">3 → 10 juillet · 7 nuits · ~18 km totaux</div>
   <div class="sec-title">🌆 Chicago</div>
-  <div class="sec-meta">Chez ami (3–5 jul) · Freehand (5–10 jul)</div>
+  <div class="sec-meta">Chez Albert (3–5 jul) · Freehand (5–10 jul)</div>
 </div>
 
 <div class="hotels">
   <div class="hc">
     <div class="hc-l">🏠 Hébergement</div>
-    <div class="hc-n">Chez un ami</div>
+    <div class="hc-n">Chez Albert</div>
     <div class="hc-a">MV3J+268 Romeoville, IL</div>
     <div class="hc-d">3 → 5 juillet</div>
   </div>
@@ -661,7 +661,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 <div class="day">
   <div class="day-head">
     <div>
-      <div class="day-date">Vendredi 3 juillet · Chez ami</div>
+      <div class="day-date">Vendredi 3 juillet · Chez Albert</div>
       <div class="day-title">Arrivée · Loop · Art Institute 🎨</div>
       <div class="day-km">~3 km · Millennium Park</div>
     </div>
@@ -704,7 +704,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 <div class="day">
   <div class="day-head">
     <div>
-      <div class="day-date">Samedi 4 juillet 🚗 · Chez ami</div>
+      <div class="day-date">Samedi 4 juillet 🚗 · Chez Albert</div>
       <div class="day-title">Starved Rock 🪨 · Indiana Dunes 🏖️ · 4 Juillet 🎆</div>
       <div class="day-km">~350 km voiture · grande journée road-trip</div>
     </div>
@@ -1290,6 +1290,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 function pin(c){return L.divIcon({html:`<div class="pindot" style="width:13px;height:13px;border-radius:50%;background:${c};border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);"></div>`,className:'',iconSize:[13,13],iconAnchor:[6.5,6.5]});}
+function hpin(c){return L.divIcon({html:`<div style="width:24px;height:24px;border-radius:50%;background:#fff;border:2.5px solid ${c};box-shadow:0 2px 8px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;">🏠</div>`,className:'',iconSize:[24,24],iconAnchor:[12,12]});}
 function pop(name,type,desc,addr){
   const C={'act':'#2a4f8a','resto':'#b8620b','brunch':'#1e7a52','bar':'#7a2a8a','walk':'#2e7a3e','passby':'#888','match':'#1e7a3e','jazz':'#a83060','hotel':'#6a4e1e','concert':'#5a3a8a'};
   const L={'act':'Activité','resto':'Restaurant','brunch':'Brunch/Café','bar':'Bar','walk':'Balade','passby':'Pass by','match':'Événement','jazz':'Jazz','hotel':'Hôtel','concert':'Concert'};
@@ -1308,7 +1309,7 @@ function makeMap(id,lat,lng,zm,pts,routes){
   const items=sec?[...sec.querySelectorAll('.item,.ws')]:[];
   const allItems=[...document.querySelectorAll('.item,.ws')];
   pts.forEach(p=>{
-    const mk=L.marker([p[0],p[1]],{icon:pin(p[3])}).addTo(m).bindPopup(pop(p[2],p[4],p[5],p[6]),{maxWidth:240});
+    const mk=L.marker([p[0],p[1]],{icon:p[4]==='hotel'?hpin(p[3]):pin(p[3])}).addTo(m).bindPopup(pop(p[2],p[4],p[5],p[6]),{maxWidth:240});
     const key=norm(p[2]);
     const item=key.length>=4?(items.find(el=>norm(el.textContent).includes(key))||allItems.find(el=>norm(el.textContent).includes(key))):null;
     if(item){
@@ -1329,6 +1330,7 @@ function makeMap(id,lat,lng,zm,pts,routes){
 }
 
 const NYC=[
+  [40.7516,-73.9755,'Chrysler Building','#2a4f8a','act','Gratte-ciel Art Déco · lobby + façade','405 Lexington Ave'],
   [40.7480,-74.0048,'High Line','#2e7a3e','walk','Parc suspendu · 2.3 km','Gansevoort St, Manhattan'],
   [40.7579,-73.9855,'Times Square','#1e7a3e','match','Match Argentine 22h · Écrans','Times Square, NY'],
   [40.8011,-73.9682,'Smoke Jazz','#a83060','jazz','Dîner + Jazz 20h · ~$100+/pp','2751 Broadway, UWS'],
@@ -1348,7 +1350,7 @@ const NYC=[
   [40.7588,-73.9787,'Rockefeller Center','#2a4f8a','act','Art Déco · Atlas · 30 min','30 Rockefeller Plaza'],
   [40.7527,-73.9772,'Grand Central','#2a4f8a','act','Beaux-Arts · 30 min','89 E 42nd St'],
   [40.6892,-74.0445,'Liberty Island','#2a4f8a','act','Ferry · 4h','Battery Park'],
-  [40.7459,-73.9975,'Interfaith 21 🏨','#6a4e1e','hotel','B&B ⭐4.9','246 W 21st St, Chelsea'],
+  [40.7459,-73.9975,'Interfaith 21 🏠','#6a4e1e','hotel','B&B ⭐4.9','246 W 21st St, Chelsea'],
   [40.7507,-73.9843,'Oyster Bar','#b8620b','resto','Huîtres · LUN–VEN · Réserver!','89 E 42nd St, Lower Level'],
   [40.7271,-74.0028,'Shuka','#b8620b','resto','Méditerranéen · SoHo','38 MacDougal St'],
   [40.7163,-73.9942,'Parcelle','#7a2a8a','bar','Vin naturel · Dimes Square','135 Division St, LES'],
@@ -1358,6 +1360,7 @@ const NYC=[
 ];
 
 const BK=[
+  [40.7141,-73.9527,'Pod Brooklyn 🏠','#6a4e1e','hotel','Williamsburg · code PODPAL -10%','247 Metropolitan Ave'],
   [40.7148,-73.9678,'Domino Park','#2e7a3e','walk','Vue Manhattan · Gratuit','15 River St, Williamsburg'],
   [40.7061,-73.9969,'Brooklyn Bridge','#2a4f8a','act','Traversée 1.8 km · Icône','Brooklyn Bridge, NY'],
   [40.7024,-73.9923,'DUMBO','#2a4f8a','act','Washington St · Photo','DUMBO, Brooklyn'],
@@ -1411,7 +1414,8 @@ const CHI=[
   [41.8920,-87.6315,'Blue Chicago','#7a2a8a','bar','Blues live','536 N Clark St'],
   [41.8579,-87.6534,'HaiSous','#b8620b','resto','Vietnamien · Pilsen','1800 S Carpenter St'],
   [41.8661,-87.6230,'Giordano\'s','#b8620b','resto','Deep dish pizza','1340 S Michigan Ave'],
-  [41.8885,-87.6267,'Freehand 🏨','#6a4e1e','hotel','19 E Ohio St · River North','19 E Ohio St'],
+  [41.8885,-87.6267,'Freehand 🏠','#6a4e1e','hotel','19 E Ohio St · River North','19 E Ohio St'],
+  [41.6263,-88.0853,'Chez Albert 🏠','#6a4e1e','hotel','Logement 3–5 juil · Romeoville (sud-ouest)','MV3J+268 Romeoville, IL'],
 ];
 
 const SEA=[
