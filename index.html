@@ -136,7 +136,10 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 .pop-addr{color:var(--subtle);font-size:10px;}
 @media(max-width:940px){.two-col{grid-template-columns:1fr;}.map-stick{position:static;}}
 @media(max-width:600px){.wrap{padding:32px 14px;}.wgrid{grid-template-columns:1fr 1fr;}.day-head{flex-direction:column;}}
-@media print{.nav,.map-stick{display:none;}.two-col{grid-template-columns:1fr;}.day{break-inside:avoid;}.cover{min-height:auto;page-break-after:always;}}
+@media print{.nav,.map-stick,#langsel{display:none;}.two-col{grid-template-columns:1fr;}.day{break-inside:avoid;}.cover{min-height:auto;page-break-after:always;}}
+#langsel{display:inline-flex;gap:3px;margin-left:auto;align-self:center;margin-right:14px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:3px;flex-shrink:0;}
+#langsel button{font-family:inherit;font-size:11px;font-weight:700;color:var(--muted);background:none;border:none;border-radius:14px;padding:4px 9px;cursor:pointer;letter-spacing:.05em;transition:all .15s;}
+#langsel button.on{background:var(--gold);color:#fff;}
 </style>
 </head>
 <body>
@@ -171,6 +174,7 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
   <a href="#sea" class="sea">🌲 Seattle</a>
   <a href="#resa">⚠️ Réservations</a>
   <a href="#restos">🍽️ Restos</a>
+  <span id="langsel"><button type="button" data-l="fr">FR</button><button type="button" data-l="en">EN</button><button type="button" data-l="es">ES</button></span>
 </nav>
 
 <!-- NYC -->
@@ -1301,6 +1305,84 @@ footer{text-align:center;padding:40px 24px;background:var(--bg2);border-top:1px 
 </div>
 
 <footer>Barcelona → NYC → Brooklyn → Chicago → Seattle → Barcelona · Été 2026 · Bon voyage ! 🌍</footer>
+
+<script>
+/* ===== i18n FR (source) / EN / ES — translates ' · '-delimited segments by exact match ===== */
+const I18N={
+en:{
+"Guide de voyage personnel":"Personal travel guide","Été 2026":"Summer 2026","27 juin — 14 juillet 2026":"June 27 – July 14, 2026",
+"27 juin":"June 27","27 juin – 3 juil":"Jun 27 – Jul 3","3 – 10 juil":"Jul 3 – 10","10 – 13 juil":"Jul 10 – 13","14 juil":"Jul 14",
+"Nuits":"Nights","Villes":"Cities","km à pied":"km on foot",
+"⚠️ Réservations":"⚠️ Bookings","🍽️ Restos":"🍽️ Dining",
+"27 juin → 1 juillet":"June 27 → July 1","1 → 3 juillet":"July 1 → 3","3 → 10 juillet":"July 3 → 10","10 → 13 juillet":"July 10 → 13",
+"4 nuits":"4 nights","2 nuits":"2 nights","7 nuits":"7 nights","3 nuits":"3 nights",
+"~23 km totaux":"~23 km total","~8 km totaux":"~8 km total","~18 km totaux":"~18 km total",
+"🎂 anniversaire":"🎂 birthday","À faire avant le départ":"To do before departure","Sélection @anaisraluy":"Selection @anaisraluy",
+"⚠️ Réservations urgentes":"⚠️ Urgent bookings","🍽️ Restaurants par jour":"🍽️ Restaurants by day",
+"puis vol retour Barcelone (14 jul)":"then return flight to Barcelona (Jul 14)","Chez Albert (3–5 jul)":"Chez Albert (Jul 3–5)","Freehand (5–10 jul)":"Freehand (Jul 5–10)",
+"Samedi 27 juin":"Saturday, June 27","Dimanche 28 juin":"Sunday, June 28","Lundi 29 juin":"Monday, June 29","Mardi 30 juin":"Tuesday, June 30","Mercredi 1 juillet":"Wednesday, July 1","Jeudi 2 juillet":"Thursday, July 2","Vendredi 3 juillet":"Friday, July 3","Samedi 4 juillet 🚗":"Saturday, July 4 🚗","Dimanche 5 juillet 🚗":"Sunday, July 5 🚗","Lundi 6 juillet":"Monday, July 6","Mardi 7 juillet":"Tuesday, July 7","Mercredi 8 juillet":"Wednesday, July 8","Départ Seattle ✈️":"Seattle departure ✈️","9–10 juillet":"July 9–10","Vendredi 10 juillet":"Friday, July 10","Samedi 11 juillet":"Saturday, July 11","Dimanche 12 juillet":"Sunday, July 12","Lundi 13 juillet":"Monday, July 13",
+"Départ":"Departure","Arrivée":"Arrival","Arrivée Seattle":"Seattle arrival",
+"Brooklyn à vélo 🚲":"Brooklyn by bike 🚲","Williamsburg Musique & Vintage 🎵":"Williamsburg Music & Vintage 🎵","Dernier matin Brooklyn → Chicago ✈️":"Last morning Brooklyn → Chicago ✈️","4 Juillet 🎆":"July 4th 🎆","Vol Chicago → Seattle":"Flight Chicago → Seattle","2 options":"2 options","🇦🇷 Quart":"🇦🇷 Quarter-final","🎂 Anniversaire":"🎂 Birthday","Nature + Ferry":"Nature + Ferry","3 options 🌲":"3 options 🌲","Dernière matinée":"Last morning","Vol retour ✈️":"Return flight ✈️",
+"🇦🇷 Argentine 22h":"🇦🇷 Argentina 22h","🚲 Vélo":"🚲 Bike","Vol JFK → ORD":"Flight JFK → ORD","🚗 Voiture":"🚗 Car","Vol ORD → SEA":"Flight ORD → SEA","🇦🇷 Quart de finale":"🇦🇷 Quarter-final","✓ à valider avec O&K":"✓ to confirm with O&K",
+"🗺️ Carte NYC interactive":"🗺️ Interactive NYC map","🗺️ Carte Brooklyn interactive":"🗺️ Interactive Brooklyn map","🗺️ Carte Chicago interactive":"🗺️ Interactive Chicago map","🗺️ Carte Seattle interactive":"🗺️ Interactive Seattle map",
+"Bon voyage ! 🌍":"Have a great trip! 🌍",
+"Balade":"Walk","Déjeuner":"Lunch","Dîner":"Dinner","Musée":"Museum","option":"option","Option":"Option","Gratuit":"Free","Réserver!":"Book!","✅ Réservation faite":"✅ Booked","Petit-déj":"Breakfast","🥐 Petit-déjeuner inclus":"🥐 Breakfast included","Petit-déjeuner inclus":"Breakfast included","Disquaire":"Record shop","Hôtel":"Hotel","Transfert":"Transfer","Route":"Drive","Vue":"View","Film":"Film","Tour 90 min":"90-min tour","MAINTENANT!":"NOW!"
+},
+es:{
+"Guide de voyage personnel":"Guía de viaje personal","Été 2026":"Verano 2026","27 juin — 14 juillet 2026":"27 junio – 14 julio 2026",
+"27 juin":"27 jun","27 juin – 3 juil":"27 jun – 3 jul","3 – 10 juil":"3 – 10 jul","10 – 13 juil":"10 – 13 jul","14 juil":"14 jul",
+"Nuits":"Noches","Villes":"Ciudades","km à pied":"km a pie",
+"⚠️ Réservations":"⚠️ Reservas","🍽️ Restos":"🍽️ Comida",
+"27 juin → 1 juillet":"27 jun → 1 jul","1 → 3 juillet":"1 → 3 jul","3 → 10 juillet":"3 → 10 jul","10 → 13 juillet":"10 → 13 jul",
+"4 nuits":"4 noches","2 nuits":"2 noches","7 nuits":"7 noches","3 nuits":"3 noches",
+"~23 km totaux":"~23 km en total","~8 km totaux":"~8 km en total","~18 km totaux":"~18 km en total",
+"🎂 anniversaire":"🎂 cumpleaños","À faire avant le départ":"Por hacer antes de salir","Sélection @anaisraluy":"Selección @anaisraluy",
+"⚠️ Réservations urgentes":"⚠️ Reservas urgentes","🍽️ Restaurants par jour":"🍽️ Restaurantes por día",
+"puis vol retour Barcelone (14 jul)":"luego vuelo de regreso a Barcelona (14 jul)",
+"Samedi 27 juin":"Sábado 27 de junio","Dimanche 28 juin":"Domingo 28 de junio","Lundi 29 juin":"Lunes 29 de junio","Mardi 30 juin":"Martes 30 de junio","Mercredi 1 juillet":"Miércoles 1 de julio","Jeudi 2 juillet":"Jueves 2 de julio","Vendredi 3 juillet":"Viernes 3 de julio","Samedi 4 juillet 🚗":"Sábado 4 de julio 🚗","Dimanche 5 juillet 🚗":"Domingo 5 de julio 🚗","Lundi 6 juillet":"Lunes 6 de julio","Mardi 7 juillet":"Martes 7 de julio","Mercredi 8 juillet":"Miércoles 8 de julio","Départ Seattle ✈️":"Salida Seattle ✈️","9–10 juillet":"9–10 de julio","Vendredi 10 juillet":"Viernes 10 de julio","Samedi 11 juillet":"Sábado 11 de julio","Dimanche 12 juillet":"Domingo 12 de julio","Lundi 13 juillet":"Lunes 13 de julio",
+"Départ":"Salida","Arrivée":"Llegada","Arrivée Seattle":"Llegada Seattle",
+"Brooklyn à vélo 🚲":"Brooklyn en bici 🚲","Williamsburg Musique & Vintage 🎵":"Williamsburg Música y Vintage 🎵","Dernier matin Brooklyn → Chicago ✈️":"Última mañana Brooklyn → Chicago ✈️","4 Juillet 🎆":"4 de Julio 🎆","Vol Chicago → Seattle":"Vuelo Chicago → Seattle","2 options":"2 opciones","🇦🇷 Quart":"🇦🇷 Cuartos","🎂 Anniversaire":"🎂 Cumpleaños","Nature + Ferry":"Naturaleza + Ferry","3 options 🌲":"3 opciones 🌲","Dernière matinée":"Última mañana","Vol retour ✈️":"Vuelo de regreso ✈️",
+"🇦🇷 Argentine 22h":"🇦🇷 Argentina 22h","🚲 Vélo":"🚲 Bici","Vol JFK → ORD":"Vuelo JFK → ORD","🚗 Voiture":"🚗 Coche","Vol ORD → SEA":"Vuelo ORD → SEA","🇦🇷 Quart de finale":"🇦🇷 Cuartos de final","✓ à valider avec O&K":"✓ a confirmar con O&K",
+"🗺️ Carte NYC interactive":"🗺️ Mapa NYC interactivo","🗺️ Carte Brooklyn interactive":"🗺️ Mapa Brooklyn interactivo","🗺️ Carte Chicago interactive":"🗺️ Mapa Chicago interactivo","🗺️ Carte Seattle interactive":"🗺️ Mapa Seattle interactivo",
+"Bon voyage ! 🌍":"¡Buen viaje! 🌍",
+"Balade":"Paseo","Déjeuner":"Almuerzo","Dîner":"Cena","Musée":"Museo","option":"opción","Option":"Opción","Gratuit":"Gratis","Réserver!":"¡Reservar!","✅ Réservation faite":"✅ Reservado","Petit-déj":"Desayuno","🥐 Petit-déjeuner inclus":"🥐 Desayuno incluido","Petit-déjeuner inclus":"Desayuno incluido","Disquaire":"Tienda de discos","Hôtel":"Hotel","Transfert":"Traslado","Route":"Ruta","Vue":"Vista","Film":"Película","Tour 90 min":"Tour 90 min","MAINTENANT!":"¡AHORA!","Match ⚽":"Partido ⚽"
+}
+};
+(function(){
+  var NODES=null;
+  function collect(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      if(!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+      var p=n.parentElement;
+      if(!p||p.closest('#langsel,script,style,.leaflet-container'))return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    var a=[],n;while(n=w.nextNode())a.push({n:n,fr:n.nodeValue});return a;
+  }
+  function apply(lang){
+    if(!NODES)NODES=collect();
+    var d=lang==='fr'?null:I18N[lang];
+    NODES.forEach(function(o){
+      if(!d){o.n.nodeValue=o.fr;return;}
+      o.n.nodeValue=o.fr.split(' · ').map(function(s){
+        var t=s.trim();if(!t)return s;
+        var v=d[t];return v===undefined?s:s.replace(t,v);
+      }).join(' · ');
+    });
+    document.documentElement.lang=lang;
+    try{localStorage.setItem('lang',lang);}catch(e){}
+    var bs=document.querySelectorAll('#langsel button');
+    for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].getAttribute('data-l')===lang);
+  }
+  function init(){
+    var bs=document.querySelectorAll('#langsel button');
+    for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){apply(this.getAttribute('data-l'));});
+    var saved='fr';try{saved=localStorage.getItem('lang')||'fr';}catch(e){}
+    apply(saved);
+  }
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
